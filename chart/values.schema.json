@@ -19,12 +19,14 @@
         "tag": {
           "type": "string"
         }
-      }
+      },
+      "required": ["repository", "tag"]
     },
     "service": {
       "type": "object",
       "properties": {
-        "type": "string"
+        "type": {
+          "type": "string"
         },
         "port": {
           "type": "integer"
@@ -32,10 +34,12 @@
         "targetPort": {
           "type": "integer"
         }
-      }
+      },
+      "required": ["type", "port", "targetPort"]
     },
     "containerPort": {
       "type": "integer"
     }
-  }
+  },
+  "required": ["replicaCount", "image", "service", "containerPort"]
 }

@@ -1,0 +1,16 @@
+apiVersion: composition.krateo.io/v0-1-0
+kind: NodejsApp
+metadata:
+  name: nodejs-app-composition-1
+  namespace: default
+spec:
+  replicaCount: 1
+  containerPort: 3000
+  image:
+    repository: ghcr.io/krateoplatformops-workshop/nodejs-1
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 3000
